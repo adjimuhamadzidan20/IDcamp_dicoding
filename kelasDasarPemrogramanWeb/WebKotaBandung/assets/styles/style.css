@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Quicksand', sans-serif;
     padding: 0;
@@ -74,6 +78,11 @@ main {
     object-position: center;
 }
 
+.desc {
+    text-align: justify;
+    line-height: 24px;
+}
+
 aside {
     float: right;
     width: 25%;
@@ -100,5 +109,12 @@ footer {
     #content, aside {
         width: 100%;
         padding: 0;
+    }
+}
+
+@media screen and (max-width: 513px) {
+    nav ul {
+        display: flex;
+        justify-content: space-between;
     }
 }
