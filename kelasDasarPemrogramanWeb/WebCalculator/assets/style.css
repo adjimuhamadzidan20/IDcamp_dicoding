@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.flex-container-column {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+    box-shadow: 5px 6px 5px lightgrey, -5px 6px 5px lightgrey;
+    padding: 20px;
+}
+
+.flex-container-column .display {
+    background-color: hsla(0, 0%, 72%, 0.2);
+    padding: 10px;
+    height: 138px;
+    /* margin-bottom: 14px; */
+}
+
+.flex-container-column .display h1 {
+    font-size: 50px;
+    /* color: white; */
+}
+
+.flex-container-row {
+    display: flex;
+}
+
+.button {
+    flex-basis: 25%;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px;
+    /* background: -webkit-linear-gradient(top, #d2d2d2, #ddd); */
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+    border: 1px solid rgb(158, 158, 158);
+}
+
+.button:hover {
+    background-color: rgb(207, 207, 207);
+}
+
+.negative, .operator, .equals {
+    background-color: dodgerblue;
+    flex-basis: 25%;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px;
+    cursor: pointer;
+    color: white;
+    border: 1px solid rgb(25, 119, 212);
+}
+
+.double {
+    flex-basis: 50%;
+}
+
+.equals:hover {
+    background-color: rgb(29, 133, 236);
+}
+
+.negative:hover {
+    background-color: rgb(29, 133, 236);
+}
+
+.operator:hover {
+    background-color: rgb(29, 133, 236);
+}
+
+@media screen and (max-width: 513px) {
+    .button {
+        padding: 10px;
+    }
+
+    .negative, .operator, .equals {
+        padding: 10px;
+    }
+}
+
+
