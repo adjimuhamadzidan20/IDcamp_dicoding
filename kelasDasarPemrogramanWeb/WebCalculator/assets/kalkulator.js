@@ -84,6 +84,18 @@ function performCalculation() {
     }
 
     kalkulator.displayNumber = result;
+
+    // objek yang akan dikirimkan sebagai argumen fungsi putHistory()
+    const history = {
+        firstNumber : kalkulator.firstNumber,
+        secondNumber : kalkulator.displayNumber,
+        operator : kalkulator.operator,
+        result : result
+    }
+
+    putHistory(history);
+    kalkulator.displayNumber = result;
+    renderHistory();
 }
 
 // memanggil elemen button yg class negative, operator, equals
