@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
+    <!-- mobile navbar -->
+    <div class="nav-mobile">
+        <img src="assets/icon/menu.png" alt="icon-nav" class="hamburger">
+    </div>
+    <!-- mobile navigasi link -->
+    <div class="nav-list-mobile">
+        <ul>
+            <li><a href="#sejarah">Sejarah</a></li>
+            <li><a href="#geografis">Geografis</a></li>
+            <li><a href="#wisata">Wisata</a></li>
+        </ul>
+    </div>
+
+    <!-- desktop navbar -->
     <header>
         <div class="jumbotron">
             <h1>Bandung</h1>
@@ -19,7 +33,7 @@
                 <li><a href="#geografis">Geografis</a></li>
                 <li><a href="#wisata">Wisata</a></li>
             </ul>
-        </nav>   
+        </nav>
     </header>
     <main>
         <div id="content">
@@ -100,5 +114,25 @@
     <footer>
         <p>Belajar Dasar Pemrograman Web &#169; 2019, Dicoding Academy</p>
     </footer>
+
+    <script>
+        // memanggil icon gambar
+		let iconHamb = document.querySelector('.hamburger');
+		iconHamb.onclick = function() {
+
+			// memanggil list navigasi mobile
+			let navbar = document.getElementsByClassName('nav-list-mobile')[0];
+
+			// jika icon ditekan (menampilkan link nav)
+			if(navbar.style.display === "none") {
+		    	navbar.style.display = "block";
+		    } 
+
+		    // jika icon ditekan lagi (menyembunyikan link nav)
+		    else {
+		        navbar.style.display = "none";
+		    }
+		}
+    </script>
 </body>
 </html>
