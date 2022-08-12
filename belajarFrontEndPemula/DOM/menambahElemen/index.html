@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memasak Air</title>
+</head>
+<body>
+    <p id="name">Langkah-langkah memasak air</p>
+    <ol id="daftar">
+      <li id="awal">Masukkan air ke dalam wadah.</li>
+      <li id="akhir">Matikan kompor.</li>
+    </ol>
+    <hr size="2" width="95%" color="black">
+
+    <script>
+        // menambah list baru 'selamat menikmati!'
+        const listBaru = document.createElement('li');
+        listBaru.innerHTML = 'Selamat Menikmati!';
+
+        const daftarList = document.getElementById('daftar');
+        daftarList.appendChild(listBaru);
+
+        // menambah list baru diawal 'nyalakan kompor'
+        const listAwal = document.createElement('li');
+        listAwal.innerHTML = 'Nyalakan kompor';
+        
+        const awal = document.getElementById('awal');
+        daftarList.insertBefore(listAwal, awal);
+
+    </script>
+</body>
+</html>
