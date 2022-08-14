@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event World</title>
+    <style>
+        .contents {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid black;
+            padding: 15px;
+        }
+        
+        #generateButton {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contents" align="center" hidden>
+        <button id="incrementButton">Tekan Aku :)</button>
+        <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3>
+    </div>
+       
+    <script>
+        function welcome() {
+            alert('Sim salabim muncullah elemen-elemen HTML!');
+            let content = document.querySelector('.contents');
+            content.removeAttribute('hidden');
+        }
+
+        function increment() {
+            document.getElementById('count').innerHTML++;
+
+            if (document.getElementById('count').innerHTML == 7) {
+                let title = document.createElement('h4');
+                title.innerHTML = 'Selamat! Anda menemukan hadiah tersembunyi...';
+
+                let gambar = document.createElement('img');
+                gambar.setAttribute('src', 'https://i.ibb.co/0V49VRZ/catto.jpg');
+                
+                let content = document.querySelector('.contents');
+                content.appendChild(title).appendChild(gambar);
+            }
+        }
+        
+        // document.body.onload = welcome(); // event onload
+        // document.getElementById('incrementButton').onclick = increment; // event onclick
+        window.addEventListener('load', welcome);
+        document.getElementById('incrementButton').addEventListener('click', increment);
+        
+    </script>
+</body>
+</html>
