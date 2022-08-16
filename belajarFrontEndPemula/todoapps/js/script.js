@@ -155,6 +155,9 @@ function findTodoIndex(todoID) {
 }
 
 // fitur web storage
+const SAVED_EVENT = 'save-todo';
+const STORAGE_KEY = 'todo-app';
+
 function saveData() {
 	if (isStorageExist()) {
 		const parsed = JSON.stringify(todo);
@@ -162,9 +165,6 @@ function saveData() {
 		document.dispatchEvent(new Event(SAVED_EVENT));
 	}
 }
-
-const SAVED_EVENT = 'save-todo';
-const STORAGE_KEY = 'todo-app';
 
 function isStorageExist() {
 	if (typeof(Storage) === undefined) {
