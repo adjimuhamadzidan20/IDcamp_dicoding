@@ -15,6 +15,7 @@ function addTodo() {
 	todo.push(ToDoObject);
 
 	document.dispatchEvent(new Event(RENDER_EVENT));
+	saveData();
 }
 
 function generatID() {
@@ -109,6 +110,7 @@ function addTaskCompleted(todoID) {
 	todoTarget.isCompleted = true;
 
 	document.dispatchEvent(new Event(RENDER_EVENT));
+	saveData();
 }
 
 function findTodo(todoID) {
@@ -129,6 +131,7 @@ function removeTaskFromCompleted(todoID) {
 	todo.splice(todoTarget, 1);
 
 	document.dispatchEvent(new Event(RENDER_EVENT));
+	saveData();
 }
 
 function undoTaskFromCompleted(todoID) {
@@ -138,6 +141,7 @@ function undoTaskFromCompleted(todoID) {
 
 	todoTarget.isCompleted = false;
 	document.dispatchEvent(new Event(RENDER_EVENT));
+	saveData();
 }
 
 function findTodoIndex(todoID) {
@@ -149,3 +153,47 @@ function findTodoIndex(todoID) {
 
 	return -1;
 }
+
+// fitur web storage
+function saveData() {
+	if (isStorageExist()) {
+		const parsed = JSON.stringify(todo);
+		localStorage.setItem(STORAGE_KEY, parsed);
+		document.dispatchEvent(new Event(SAVED_EVENT));
+	}
+}
+
+const SAVED_EVENT = 'save-todo';
+const STORAGE_KEY = 'todo-app';
+
+function isStorageExist() {
+	if (typeof(Storage) === undefined) {
+		alert('Browser kamu tidak mendukung local storage');
+		return false;
+	}
+
+	return true;
+}
+
+document.addEventListener(SAVED_EVENT, function() {
+	console.log(localStorage.getItem(STORAGE_KEY));
+})
+
+function loadDataFromStorage() {
+	const serialData = localStorage.getItem(STORAGE_KEY);
+	let data = JSON.parse(serialData);
+
+	if (data !== null) {
+		for (const todoData of data) {
+			todo.push(todoData);
+		}
+	}
+
+	document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	if (isStorageExist()) {
+		loadDataFromStorage();
+	}
+})
