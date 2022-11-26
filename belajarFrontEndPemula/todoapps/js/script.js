@@ -1,3 +1,4 @@
+// membangitkan semua elemen html menjadi DOM 
 document.addEventListener('DOMContentLoaded', function() {
 	const formSubmit = document.getElementById('form');
 	formSubmit.addEventListener('submit', function(event) {
@@ -6,22 +7,25 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 })
 
+// fungsi menambah todo list baru
 function addTodo() {
 	const todoText = document.getElementById('title').value;
 	const times = document.getElementById('date').value;
 
 	const generatId = generatID();
 	const ToDoObject = generatToDoObject(generatId, todoText, times, false);
-	todo.push(ToDoObject);
+	todo.push(ToDoObject); // memasukan objek ke array todo
 
-	document.dispatchEvent(new Event(RENDER_EVENT));
+	document.dispatchEvent(new Event(RENDER_EVENT)); // custom event
 	saveData();
 }
 
+// fungsi meng generate kode ID
 function generatID() {
 	return +new Date();
 }
 
+// objek data
 function generatToDoObject(id, task, timestamp, isCompleted) {
 	return {
 		id,
@@ -31,8 +35,8 @@ function generatToDoObject(id, task, timestamp, isCompleted) {
 	}
 }
 
-const todo = [];
-const RENDER_EVENT = 'render-todo';
+const todo = []; // array menampung data objek
+const RENDER_EVENT = 'render-todo'; // custom event
 
 document.addEventListener(RENDER_EVENT, function() {
 	// console.log(todo);
@@ -54,6 +58,7 @@ document.addEventListener(RENDER_EVENT, function() {
 	 } 
 })
 
+// fungsi menampilkan output to do list
 function makeToDo(todoObject) {
 	const titleText = document.createElement('h2');
 	titleText.innerText = todoObject.task;

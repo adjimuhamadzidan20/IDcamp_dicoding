@@ -95,9 +95,11 @@
 	</div>	
 
 	<script type="text/javascript">
+		// membuat nama storage
 		const storageKey = 'DATA';
 		const submitForm = document.getElementById('form-data-user');
 
+		// check support web storage
 		function checkStorage() {
 			return typeof(Storage) !== 'undefined';
 		}

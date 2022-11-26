@@ -1,13 +1,17 @@
+// key value
 const CACHE_KEY = 'KALKULATOR_HISTORY';
 
+// check storage
 function checkForStorage() {
     return typeof(Storage) !== 'undefined';
 }
+
 
 function putHistory(data) {
     if (checkForStorage()) {
         let historyData = null;
 
+        // jika data storage null
         if (localStorage.getItem(CACHE_KEY) === null) {
             historyData = [];
         } else {
